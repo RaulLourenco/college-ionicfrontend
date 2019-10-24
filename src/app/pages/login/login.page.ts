@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular'
 import { LoginService } from 'src/app/services/login/login.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
   constructor(private loginService: LoginService,
               private alertController: AlertController,
               private loadingController: LoadingController,
-              private formBuilder: FormBuilder
+              private formBuilder: FormBuilder,
+              private router: Router,
     ) { }
 
   ngOnInit() {
@@ -22,8 +24,9 @@ export class LoginPage implements OnInit {
   }
 
   public async onSign() {
-    this.presentLoading();
-    this.loginService.login(this.userForm['user'].value, this.userForm['password']);
+    // this.presentLoading();
+    // this.loginService.login(this.userForm['user'].value, this.userForm['password'].value);
+    this.router.navigate['home'];
   }
 
   async presentLoading(){

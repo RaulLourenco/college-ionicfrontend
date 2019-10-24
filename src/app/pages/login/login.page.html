@@ -2,7 +2,7 @@
   <ion-segment 
     (ionChange)="segmentChanged($event)"
     class="ion-segment-buttons"
-    mode="ios">
+    mode="md">
     <ion-segment-button value="aluno">
       <ion-label>Aluno</ion-label>
     </ion-segment-button>
@@ -11,7 +11,7 @@
     </ion-segment-button>
   </ion-segment>
 
-  <form [formGroup]="userForm" (ngSubmit)="onSign()">
+  <!-- <form [formGroup]="userForm" (ngSubmit)="onSign()"> -->
   <ion-item margin-top>
     <ion-label position="floating">
       CPF
@@ -39,6 +39,7 @@
   >
   Entrar
   </ion-button>
-  </form>
+  <ion-button [routerLink]="['/home', 'tabs', 'home']">LOUCURA</ion-button>
+  <!-- </form> -->
   <ion-label margin-top><a>Esqueceu a senha?</a></ion-label>
 </ion-content>
