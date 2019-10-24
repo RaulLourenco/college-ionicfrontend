@@ -1,0 +1,44 @@
+<ion-content padding>  
+  <ion-segment 
+    (ionChange)="segmentChanged($event)"
+    class="ion-segment-buttons"
+    mode="ios">
+    <ion-segment-button value="aluno">
+      <ion-label>Aluno</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="professor">
+      <ion-label>Professor</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSign()">
+  <ion-item margin-top>
+    <ion-label position="floating">
+      CPF
+    </ion-label>
+    <ion-input 
+      type="number" 
+    >
+    </ion-input>
+  </ion-item>
+  <ion-item margin-top margin-bottom>
+    <ion-label position="floating">
+      SENHA
+    </ion-label>
+    <ion-input 
+      type="password" 
+    >
+    </ion-input>
+  </ion-item>
+  <ion-button 
+    expand="block" 
+    color="primary" 
+    class="enter-button"
+    margin-bottom
+    [disabled]="false"
+  >
+  Entrar
+  </ion-button>
+  </form>
+  <ion-label margin-top><a>Esqueceu a senha?</a></ion-label>
+</ion-content>
