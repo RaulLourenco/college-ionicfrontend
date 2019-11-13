@@ -25,10 +25,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.initializeForm();
-    // this.items = this.db.collection('student').valueChanges().subscribe(res => {
-    //   console.log(res);
-    //   this.items = res;
-    // });
   }
 
   private async onSign(ra, password) {
@@ -55,25 +51,6 @@ export class LoginPage implements OnInit {
           this.presentAlert('Documento nao existe.');
         }
       });
-  }
-
-  private getUserData() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        const name = user.displayName;
-        const email = user.email;
-        const ra = user.uid;
-      }
-    });
-  }
-
-  private async onSignup(course, email, name, ra) {
-    this.db.collection('student').doc(ra).set({
-      course: course,
-      email: email,
-      name: name,
-      ra: ra
-    });
   }
 
   async presentLoading() {
