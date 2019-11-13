@@ -8,8 +8,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class HomePage implements OnInit {
 
-  private userData: any;
-  private subject: any;
+  userData: any;
+  subject: any;
 
   constructor(private db: AngularFirestore) { }
 
