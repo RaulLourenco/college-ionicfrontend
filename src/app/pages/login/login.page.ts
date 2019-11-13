@@ -33,13 +33,9 @@ export class LoginPage implements OnInit {
 
   private async onSign(ra, password) {
     this.presentLoading();
-    const alertPresent = await this.alertController.create({
-      message: 'Senha errada! Tente novamente.'
-    });
     const doc = this.db.collection('student').doc(ra)
-      .get().toPromise().then(doc => {
+      .get().toPromise().then(async doc => {
         if (doc.exists) {
-          console.log('este eh o data', doc.data());
           const email = doc.data().email;
           firebase.auth().signInWithEmailAndPassword(email, password)
             .then(res => {
@@ -50,12 +46,13 @@ export class LoginPage implements OnInit {
               this.dismissLoading();
               const errorCode = error.code;
               const errorMessage = error.message;
-              alertPresent.present();
+              this.presentAlert('Senha errada! Tente novamente.');
               console.error(errorCode);
               console.error(errorMessage);
             });
         } else {
-          console.log('Documento nao existe.');
+          this.dismissLoading();
+          this.presentAlert('Documento nao existe.');
         }
       });
   }
@@ -70,11 +67,12 @@ export class LoginPage implements OnInit {
     });
   }
 
-  private async onSignup(ra) {
+  private async onSignup(course, email, name, ra) {
     this.db.collection('student').doc(ra).set({
-      course: 'ADS',
-      name: 'Marlon Henrique',
-      ra: '816118479'
+      course: course,
+      email: email,
+      name: name,
+      ra: ra
     });
   }
 
@@ -87,6 +85,13 @@ export class LoginPage implements OnInit {
 
   async dismissLoading() {
     return await this.loadingController.dismiss();
+  }
+
+  async presentAlert(message){
+    const alertPresent = await this.alertController.create({
+      message: message
+    });
+    return await alertPresent.present();
   }
 
   initializeForm() {

@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Universidade São Judas Tadeu</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-row>
+    <ion-col padding-top>
+      Olá, <b>{{userData.name}}</b>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col padding-top>
+      Turma: ECP6AN-MCA
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      Curso: Engenharia de Computação
+    </ion-col>
+  </ion-row>
+  <ion-row class="table-subject" margin-top>
+    <b class="subjects-bold">
+      <ion-toolbar>
+        <ion-col margin>Disciplina</ion-col>
+        <ion-col margin>Faltas</ion-col>
+        <ion-col margin>Notas</ion-col>
+      </ion-toolbar>
+    </b>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div *ngFor="let subject of subjects">
+        <h3>{{subject.name}}</h3>
+      </div>
+    </ion-col>
+  </ion-row>
 </ion-content>
