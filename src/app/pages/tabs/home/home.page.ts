@@ -15,7 +15,8 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.getUserData('816117561');
-    this.subjects('Sistemas Operacionais');
+    this.subjects();
+    console.log('esta eh a chamada: ', this.subjects());
   }
 
   public getUserData(ra) {
@@ -25,11 +26,10 @@ export class HomePage implements OnInit {
     });
   }
 
-  public subjects(subject) {
-    this.db.collection('subjects').doc(subject).get().toPromise().then(subjects => {
-      console.log('data: ', subjects.data());
-      this.subject = subjects.data();
-      return this.subject();
-    });
+  public async subjects() {
+    const snapshot = await firebase.firestore().collection('subjects').get()
+    console.log('este eh o snapshot: ', snapshot);
+    return snapshot.docs.map(doc =>
+      doc.data());
   }
 }
