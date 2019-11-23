@@ -1,13 +1,28 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-icon name="arrow-back"></ion-icon>
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content class="ion-padding">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="home-icon">
+        <ion-icon color="primary" name="book" size="large"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="title" size="12">
+        <p><b>College Interaction</b></p>
+      </ion-col>
+      <ion-col class="title-subtitle">
+        <p>Conectando alunos e professores.</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <form class="form" [formGroup]="userForm" (ngSubmit)="onSign(userForm.value.user, userForm.value.password)">
 
@@ -21,13 +36,13 @@
 
     <ion-item class="ion-margin-top ion-margin-bottom">
       <ion-label position="floating">
-        SENHA
+        Senha
       </ion-label>
       <ion-input type="password" formControlName="password">
       </ion-input>
     </ion-item>
 
-    <ion-button expand="block" type="submit" color="primary" class="enter-button ion-margin-bottom" [disabled]="false">
+    <ion-button expand="block" shape="round" type="submit" color="primary" class="enter-button ion-margin-bottom" [disabled]="false">
       Entrar
     </ion-button>
 
