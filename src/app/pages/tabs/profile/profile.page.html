@@ -10,3 +10,58 @@
         </ion-row>
     </ion-toolbar>
 </ion-header>
+
+<ion-content>
+    <ion-row>
+        <ion-col size="6">
+            <ion-avatar class="avatar">
+                <img src="../../../../assets/images/cadeiras.jpg" />
+            </ion-avatar>
+        </ion-col>
+
+        <ion-col class="avatar-name">
+            <h4>Pedro Cardozo Jr.</h4>
+            <p class="profile-type">Perfil - Professor</p>
+        </ion-col>
+    </ion-row>
+    <ion-item>
+        <ion-col class="avatar-item">
+        </ion-col>
+    </ion-item>
+    <ion-item>
+        <ion-row>
+            <ion-col size="10">
+                <p class="list-item">Matérias</p>
+            </ion-col>
+            <ion-col>
+                <p class="list-item-child">Cálculo Diferencial, Cálculo Integral, Sistemas Operacionais</p>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+    <ion-item>
+        <ion-row>
+            <ion-col size="10">
+                <p class="list-item">Telefone</p>
+            </ion-col>
+            <ion-col>
+                <p class="list-item-child">(11) 97721-4850</p>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+    <ion-item>
+        <ion-row>
+            <ion-col size="10">
+                <p class="list-item">E-mail</p>
+            </ion-col>
+            <ion-col>
+                <p class="list-item-child">prof.cardozo@usjt.br</p>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+    <ion-row>
+        <ion-button (click)="exit()" fill="clear"> 
+            <ion-icon slot="icon-only" size="large"class="exit-button" color="danger" name="arrow-dropleft"></ion-icon>
+        </ion-button>
+        <p class="exit-text">SAIR</p>
+    </ion-row>
+</ion-content>
