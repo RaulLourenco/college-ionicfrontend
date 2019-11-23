@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Voltar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form class="form" [formGroup]="userForm" (ngSubmit)="onSign(userForm.value.user, userForm.value.password)">
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="floating">
+        RA
+      </ion-label>
+      <ion-input formControlName="user" type="text">
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top ion-margin-bottom">
+      <ion-label position="floating">
+        SENHA
+      </ion-label>
+      <ion-input type="password" formControlName="password">
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" color="primary" class="enter-button ion-margin-bottom" [disabled]="false">
+      Entrar
+    </ion-button>
+
+  </form>
+  <ion-label class="ion-margin-top"><a>Esqueceu a senha?</a></ion-label>
+</ion-content>

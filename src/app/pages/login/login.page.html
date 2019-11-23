@@ -1,40 +1,38 @@
-<ion-content class="ion-padding">
-
-  <ion-segment (ionChange)="segmentChanged($event)" class="ion-segment-buttons" mode="md">
-
-    <ion-segment-button value="aluno">
-      <ion-label>Aluno</ion-label>
-    </ion-segment-button>
-
-    <ion-segment-button value="professor">
-      <ion-label>Professor</ion-label>
-    </ion-segment-button>
-
-  </ion-segment>
-
-
-  <form class="form" [formGroup]="userForm" (ngSubmit)="onSign(userForm.value.user, userForm.value.password)">
-
-    <ion-item class="ion-margin-top">
-      <ion-label position="floating">
-        RA
-      </ion-label>
-      <ion-input formControlName="user" type="text">
-      </ion-input>
-    </ion-item>
-
-    <ion-item class="ion-margin-top ion-margin-bottom">
-      <ion-label position="floating">
-        SENHA
-      </ion-label>
-      <ion-input type="password" formControlName="password">
-      </ion-input>
-    </ion-item>
-
-    <ion-button expand="block" type="submit" color="primary" class="enter-button ion-margin-bottom"  [disabled]="false">
-      Entrar
-    </ion-button>
-
-  </form>
-  <ion-label class="ion-margin-top"><a>Esqueceu a senha?</a></ion-label>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="home-icon">
+        <ion-icon color="primary" name="book" size="large"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col  class="title" size="12">
+        <p><b>College Interaction</b></p>
+      </ion-col>
+      <ion-col class="title-subtitle">
+        <p>Conectando alunos e professores.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="subtitle">
+        <p color="primary" >Seja bem vindo(a)!</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="subtitle-text">
+        <p>Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+          ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="buttons">
+      <ion-col size="6">
+        <ion-button color="success" shape="round" (click)="iamStudent()">Sou aluno(a)</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button color="primary" shape="round" (click)="iamProfessor()">Sou professor(a)</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
