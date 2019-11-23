@@ -1,7 +1,50 @@
-.table-subject{
-    border: solid black;
-    width: 100%;
+$color-padrao: #3171e0;
+$color-grey:grey;
+
+.home-icon{
+    text-align: left;
+    zoom: 1.5;
+    margin: 10px 0 0 10px;
+    padding: 0 !important;
 }
-.subjects-bold{
-    width: 100%;
+.header-title{
+    font-size: 16px;
+    margin-top: 10px !important;
+}
+div{
+    background-image: url('../../../../assets/images/cadeiras.jpg');
+    background-repeat: no-repeat;
+}
+.image-background{
+    height: 250px;
+    position: relative;
+}
+.image-title{
+    padding: 0 !important;
+    font-size: 26px;
+    margin: 0 !important;
+}
+.texts{
+    background-color: transparent;
+    background-image: none;
+    color: white !important;
+    text-align: justify;
+    margin: 30% 20px 0 20px;
+    position: absolute;
+}
+.subjects{
+    margin-top: 20px;
+    background-color: transparent;
+    background-image: none;
+}
+.subject{
+    color: $color-grey;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.arrow-icon{
+    margin-top: 10px;
+}
+.first-item{
+    margin-top: 20px;
 }

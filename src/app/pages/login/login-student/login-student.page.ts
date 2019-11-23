@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore'
 import * as firebase from 'firebase';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-student',
@@ -19,7 +20,8 @@ export class LoginStudentPage implements OnInit {
     private loadingController: LoadingController,
     private formBuilder: FormBuilder,
     private router: Router,
-    private db: AngularFirestore) { }
+    private db: AngularFirestore
+    ) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -34,7 +36,7 @@ export class LoginStudentPage implements OnInit {
           firebase.auth().signInWithEmailAndPassword(email, password)
             .then(res => {
               this.dismissLoading();
-              this.router.navigate(['/home/tabs/home']);
+              this.router.navigateByUrl('/home/tabs/home');
             })
             .catch((error) => {
               this.dismissLoading();

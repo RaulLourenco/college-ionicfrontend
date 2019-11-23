@@ -8,7 +8,7 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'search',
+        path: 'calendar',
         children: [
           {
             path: '',

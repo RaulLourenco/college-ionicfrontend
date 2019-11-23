@@ -1,39 +1,126 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Universidade São Judas Tadeu</ion-title>
+  <ion-toolbar color="primary">
+    <ion-row>
+      <ion-col class="home-icon" size="2">
+        <ion-icon name="book" size="large"></ion-icon>
+      </ion-col>
+      <ion-col class="header-title" size="8">
+        <p>College Interaction</p>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <ion-col class="padding-top">
-      Olá, <b>{{userData.name}}</b>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col class="padding-top">
-      Turma: ECP6AN-MCA
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      Curso: Engenharia de Computação
-    </ion-col>
-  </ion-row>
-  <ion-row class="table-subject margin-top">
-    <b class="subjects-bold">
-      <ion-toolbar>
-        <ion-col class="margin">Disciplina</ion-col>
-        <ion-col class="margin">Faltas</ion-col>
-        <ion-col class="margin">Notas</ion-col>
-      </ion-toolbar>
-    </b>
-  </ion-row>
-  <!-- <ion-row>
-    <ion-col>
-      <div *ngFor="let subject of subjects">
-        <h3>{{subject.name}}</h3>
-      </div>
-    </ion-col>
-  </ion-row> -->
+  <div class="image-background">
+    <ion-row class="texts">
+      <ion-col size="12">
+        <p class="image-title">Olá, Raul</p>
+      </ion-col>
+      <ion-col size="12">
+        <p>Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum</p>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="subjects">
+    <ion-row>
+      <ion-col class="subject">
+        Cálculo Diferencial
+      </ion-col>
+    </ion-row>
+    <ion-row class="first-item">
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP6AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP5AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP5AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="subject">
+        Cálculo Integral
+      </ion-col>
+    </ion-row>
+    <ion-row class="first-item">
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP4AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP3AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP7AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="subject">
+          Sistemas Operacionais
+        </ion-col>
+      </ion-row>
+    <ion-row class="first-item">
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP8AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <ion-item>
+          Turma ECP9AN-MCA
+        </ion-item>
+      </ion-col>
+      <ion-col class="arrow-icon">
+        <ion-icon name="arrow-forward" color="success"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+  </div>
 </ion-content>
