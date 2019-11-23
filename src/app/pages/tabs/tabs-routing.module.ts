@@ -13,7 +13,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tabs/search/search.module').then(m => m.SearchPageModule)
+              import('../tabs/calendar/calendar.module').then(m => m.CalendarPageModule)
           }
         ]
       },

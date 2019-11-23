@@ -1,0 +1,25 @@
+$color-padrao: #3171e0;
+$color-grey:grey;
+
+.home-icon{
+    text-align: left;
+    zoom: 1.5;
+    margin: 10px 0 0 10px;
+    padding: 0 !important;
+}
+.header-title{
+    font-size: 16px;
+    margin-top: 10px !important;
+}
+.title{
+    color: $color-grey;
+    margin: 20px 0 0 20px;
+    font-size: 18px;
+}
+.first-item{
+    margin: 20px 0 0 20px;
+    padding: 0 !important;
+}
+.second-item{
+    color: $color-grey;
+}
