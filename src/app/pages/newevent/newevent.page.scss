@@ -1,0 +1,15 @@
+$color-padrao: #3171e0;
+$color-grey:grey;
+
+.header-title{
+    font-size: 20px;
+    margin-top: 10px !important;
+}
+.form-label{
+    color: $color-grey;
+}
+.buttons-toolbar{
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}

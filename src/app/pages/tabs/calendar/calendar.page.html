@@ -23,7 +23,9 @@
           [23/11/2019 - 19h10]
         </ion-col>
       </ion-row>
-      <ion-icon name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      <ion-button (click)="exit()" fill="clear">
+        <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item>
       <ion-row class="item">
@@ -34,7 +36,9 @@
           [27/11/2019 - 21h00]
         </ion-col>
       </ion-row>
-      <ion-icon name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      <ion-button (click)="exit()" fill="clear">
+        <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item>
       <ion-row class="item">
@@ -45,7 +49,9 @@
           [27/11/2019 - 19h10]
         </ion-col>
       </ion-row>
-      <ion-icon name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      <ion-button (click)="exit()" fill="clear">
+        <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item>
       <ion-row class="item">
@@ -56,12 +62,14 @@
           [30/11/2019 - 21h00]
         </ion-col>
       </ion-row>
-      <ion-icon name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      <ion-button (click)="exit()" fill="clear">
+        <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+      </ion-button>
     </ion-item>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success">
+    <ion-fab-button (click)="addEvent()" color="success" fill="clear">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
