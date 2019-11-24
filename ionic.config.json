@@ -1,5 +1,7 @@
 {
   "name": "college-ionicfrontend",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
