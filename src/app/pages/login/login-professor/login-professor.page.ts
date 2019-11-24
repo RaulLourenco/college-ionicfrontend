@@ -25,9 +25,9 @@ export class LoginProfessorPage implements OnInit {
     this.initializeForm();
   }
 
-  private async onSign(ra, password) {
+  private async onSign(cpf, password) {
     this.presentLoading();
-    const doc = this.db.collection('student').doc(ra)
+    const doc = this.db.collection('professors').doc(cpf)
       .get().toPromise().then(async doc => {
         if (doc.exists) {
           const email = doc.data().email;
