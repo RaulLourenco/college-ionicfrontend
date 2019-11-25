@@ -11,13 +11,20 @@ $color-grey:grey;
     font-size: 16px;
     margin-top: 10px !important;
 }
-div{
-    background-image: url('../../../../assets/images/cadeiras.jpg');
-    background-repeat: no-repeat;
+.blue-background{
+    background-color: #3880ff9c;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    height: 250px;
 }
 .image-background{
     height: 250px;
     position: relative;
+    background-image: url('../../../../assets/images/cadeiras.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 .image-title{
     padding: 0 !important;
@@ -31,6 +38,7 @@ div{
     text-align: justify;
     margin: 30% 20px 0 20px;
     position: absolute;
+    z-index: 10;
 }
 .subjects{
     margin-top: 20px;
