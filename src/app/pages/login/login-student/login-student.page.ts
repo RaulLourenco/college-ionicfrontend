@@ -36,7 +36,7 @@ export class LoginStudentPage implements OnInit {
           firebase.auth().signInWithEmailAndPassword(email, password)
             .then(res => {
               this.dismissLoading();
-              this.router.navigateByUrl('/home/tabs/home');
+              this.router.navigateByUrl('/home/tabs-student/home-student');
             })
             .catch((error) => {
               this.dismissLoading();

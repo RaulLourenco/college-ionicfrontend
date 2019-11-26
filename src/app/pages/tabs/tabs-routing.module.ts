@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { TabsStudentPage } from '../tabs-student/tabs-student.page';
 
 const routes: Routes = [
   {
@@ -45,14 +46,51 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/home',
-    pathMatch: 'full'
+    path: 'tabs-student',
+    component: TabsStudentPage,
+    children: [
+      {
+        path: 'calendar-student',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../tabs-student/calendar-student/calendar-student.module').then(m => m.CalendarStudentPageModule)
+          }
+        ]
+      },
+      {
+        path: 'home-student',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../tabs-student/home-student/home-student.module').then(m => m.HomeStudentPageModule)
+          }
+        ]
+      },
+      {
+        path: 'profile-student',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../tabs-student/profile-student/profile-student.module').then(m => m.ProfileStudentPageModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/home-student',
+        pathMatch: 'full'
+      }
+    ]
   }
-];
+]
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
