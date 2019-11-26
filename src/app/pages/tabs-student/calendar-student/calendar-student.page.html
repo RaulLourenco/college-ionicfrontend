@@ -1,1 +1,77 @@
-<h1>CALENDAR-STUDENT</h1>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-row>
+            <ion-col class="home-icon" size="2">
+                <ion-icon name="book" size="large"></ion-icon>
+            </ion-col>
+            <ion-col class="header-title" size="8">
+                <p>College Interaction</p>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <p class="title">Minha Agenda</p>
+    <div class="schedule">
+        <ion-item>
+            <ion-row class="item">
+                <ion-col size="10">
+                    Prova - ECP6AN-MCA
+                </ion-col>
+                <ion-col class="second-item">
+                    [23/11/2019 - 19h10]
+                </ion-col>
+            </ion-row>
+            <ion-button (click)="exit()" fill="clear">
+                <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-row class="item">
+                <ion-col size="10">
+                    Atividade - ECP7AN-MCA
+                </ion-col>
+                <ion-col class="second-item">
+                    [27/11/2019 - 21h00]
+                </ion-col>
+            </ion-row>
+            <ion-button (click)="exit()" fill="clear">
+                <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-row class="item">
+                <ion-col size="10">
+                    Atividade - ECP8AN-MCA
+                </ion-col>
+                <ion-col class="second-item">
+                    [27/11/2019 - 19h10]
+                </ion-col>
+            </ion-row>
+            <ion-button (click)="exit()" fill="clear">
+                <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+            </ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-row class="item">
+                <ion-col size="10">
+                    Prova - ECP9AN-MCA
+                </ion-col>
+                <ion-col class="second-item">
+                    [30/11/2019 - 21h00]
+                </ion-col>
+            </ion-row>
+            <ion-button (click)="exit()" fill="clear">
+                <ion-icon slot="icon-only" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+            </ion-button>
+        </ion-item>
+    </div>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="addEvent()" color="success" fill="clear">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>

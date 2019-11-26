@@ -1,0 +1,45 @@
+$color-padrao: #3171e0;
+$color-grey: grey;
+
+.home-icon{
+    text-align: left;
+    zoom: 1.5;
+    margin: 10px 0 0 10px;
+    padding: 0 !important;
+}
+.header-title{
+    font-size: 16px;
+    margin-top: 10px !important;
+}
+.avatar{
+    zoom: 2.0;
+    margin: 15px 0 0 10px;
+    padding: 0 !important;
+    position: relative;
+}
+.avatar-name{
+    margin: 20px 0 0 130px;
+    position: absolute;
+    font-size: 18px;
+}
+.avatar-item{
+    padding: 0 !important;
+}
+.profile-type{
+    color: $color-grey;
+    margin-top: -8px;
+}
+.list-item{
+    margin: 20px 0 0 5px !important;
+}
+.list-item-child{
+    color: $color-grey;
+    margin: 0 0 20px 5px !important;
+}
+.exit-button{
+    margin: 20px 0 0 20px;
+}
+.exit-text{
+    color: red;
+    margin: 26px 0 0 4px;
+}

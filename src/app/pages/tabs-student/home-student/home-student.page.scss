@@ -1,0 +1,65 @@
+$color-padrao: #3171e0;
+$color-grey:grey;
+
+.home-icon{
+    text-align: left;
+    zoom: 1.5;
+    margin: 10px 0 0 10px;
+    padding: 0 !important;
+}
+.header-title{
+    font-size: 16px;
+    margin-top: 10px !important;
+}
+.blue-background{
+    background-color: #3880ff9c;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    height: 250px;
+}
+.image-background{
+    height: 250px;
+    position: relative;
+    background-image: url('../../../../assets/images/cadeiras.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.image-title{
+    padding: 0 !important;
+    font-size: 26px;
+    margin: 0 !important;
+}
+.texts{
+    background-color: transparent;
+    background-image: none;
+    color: white !important;
+    text-align: justify;
+    margin: 30% 20px 0 20px;
+    position: absolute;
+    z-index: 10;
+}
+.subjects{
+    margin-top: 20px;
+    background-color: transparent;
+    background-image: none;
+}
+.subject{
+    color: $color-grey;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.arrow-icon{
+    margin-top: 10px;
+}
+.title-home{
+    text-align: center;
+    background-color: $color-padrao;
+    color: #fff;
+    margin: 20px 0 20px 0;
+    border: solid 2px #fff;
+}
+.grade-absense{
+    text-align: center;
+}
