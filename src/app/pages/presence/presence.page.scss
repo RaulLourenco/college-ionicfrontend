@@ -1,0 +1,43 @@
+$color-padrao: #3171e0;
+$color-grey:grey;
+
+.subject{
+    color: $color-padrao;
+    margin: 20px 0 0 15px;
+}
+.subject-subtitle{
+    color: $color-grey;
+    margin: 0 0 20px 15px;
+}
+.table-header{
+    color: $color-grey;
+    margin: 30px 0 10px 0;
+    text-align: center;
+}
+.avatar{
+    zoom: 1.2;
+    margin: 6px 0 0 16px;
+    padding: 0 !important;
+}
+.student{   
+    margin-top: 14px;
+}
+.checkbox{
+    margin-top: 18px;
+    text-align: center;
+    padding: 0 !important;
+}
+.checkbox-child{
+    // border: solid 2px #10dc60;
+    border-color: #10dc60 !important;
+}
+.amountAbsense{
+    color: $color-grey;
+    font-size: 14px;
+    margin: 0;
+}
+.emptyItem{
+    width: 100%;
+    padding: 0 !important;
+    margin-top: -10px;
+}

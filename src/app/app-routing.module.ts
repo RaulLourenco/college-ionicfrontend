@@ -9,7 +9,8 @@ const routes: Routes = [
   { 
     path: 'home',
     loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
-  },  { path: 'newevent', loadChildren: './pages/newevent/newevent.module#NeweventPageModule' }
+  },  { path: 'newevent', loadChildren: './pages/newevent/newevent.module#NeweventPageModule' },
+  { path: 'presence', loadChildren: './pages/presence/presence.module#PresencePageModule' }
 
 ];
 @NgModule({

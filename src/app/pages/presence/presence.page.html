@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-col class="header-title" size="8">
+        <p class="header-title">Minha Turma</p>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <p class="subject">Cálculo Avançado</p>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="subject-subtitle">
+      Turma 3º B - Semestre 2 - Lista de Presença
+    </ion-col>
+  </ion-row>
+
+  <ion-item>
+    <ion-label>Data</ion-label>
+    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Data">
+      <ion-select-option value="brown">Brown</ion-select-option>
+      <ion-select-option value="blonde">Blonde</ion-select-option>
+      <ion-select-option value="black">Black</ion-select-option>
+      <ion-select-option value="red">Red</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-row class="table-header">
+    <ion-col size="8">
+      Aluno
+    </ion-col>
+    <ion-col>
+      Presença
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col size="3">
+        <ion-avatar class="avatar">
+          <img src="../../../assets/images/jhonatan_jose.jpg" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col class="student" size="6">
+        Jhonatan Jose da Silva<br>
+        <p class="amountAbsense">0 falta(s) no semestre</p>
+      </ion-col>
+      <ion-col class="checkbox" size="3">
+        <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
+      </ion-col>
+      <ion-item class="emptyItem">
+        <ion-row></ion-row>
+      </ion-item>
+    </ion-row>
+
+  <ion-row>
+    <ion-col size="3">
+      <ion-avatar class="avatar">
+        <img src="../../../assets/images/kaique_lima.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="student" size="6">
+      Kaique Lima Andre<br>
+      <p class="amountAbsense">7 falta(s) no semestre</p>
+    </ion-col>
+    <ion-col class="checkbox" size="3">
+      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
+    </ion-col>
+    <ion-item class="emptyItem">
+      <ion-row></ion-row>
+    </ion-item>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="3">
+      <ion-avatar class="avatar">
+        <img src="../../../assets/images/lucas_rodrigues.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="student" size="6">
+      Lucas Sousa Rodrigues<br>
+      <p class="amountAbsense">4 falta(s) no semestre</p>
+    </ion-col>
+    <ion-col class="checkbox" size="3">
+      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
+    </ion-col>
+    <ion-item class="emptyItem">
+      <ion-row></ion-row>
+    </ion-item>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="3">
+      <ion-avatar class="avatar">
+        <img src="../../../assets/images/lucas_valero.jpg" />
+      </ion-avatar>
+    </ion-col>
+    <ion-col class="student" size="6">
+      Lucas Valero Pontes<br>
+      <p class="amountAbsense">0 falta(s) no semestre</p>
+    </ion-col>
+    <ion-col class="checkbox" size="3">
+      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
+    </ion-col>
+    <ion-item class="emptyItem">
+      <ion-row></ion-row>
+    </ion-item>
+  </ion-row>
+
+  <ion-row>
+      <ion-col size="3">
+        <ion-avatar class="avatar">
+          <img src="../../../assets/images/raul_lourenco.jpg" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col class="student" size="6">
+        Raul Lourenço dos Santos<br>
+        <p class="amountAbsense">2 falta(s) no semestre</p>
+      </ion-col>
+      <ion-col class="checkbox" size="3">
+        <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
+      </ion-col>
+      <ion-item class="emptyItem">
+        <ion-row></ion-row>
+      </ion-item>
+    </ion-row>
+
+</ion-content>
