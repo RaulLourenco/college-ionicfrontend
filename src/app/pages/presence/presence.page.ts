@@ -18,4 +18,8 @@ export class PresencePage implements OnInit {
     message: 'Selecione uma das datas abaixo.'
   };
 
+  public openCamera(){
+    
+  }
+
 }
