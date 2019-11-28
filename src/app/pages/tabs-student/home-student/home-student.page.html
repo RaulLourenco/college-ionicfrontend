@@ -16,7 +16,7 @@
   <div class="image-background">
     <ion-row class="texts">
       <ion-col size="12">
-        <p class="image-title">Olá, Raul</p>
+        <p class="image-title">Olá, {{userName}}</p>
       </ion-col>
       <ion-col size="12">
         <p>Abaixo você poderá acompanhar a sua rotina na faculdade, como as matérias do semestre atual, notas e faltas.
@@ -35,23 +35,25 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="subject">
-        Projeto Interdisciplinar - 6B
-      </ion-col>
-    </ion-row>
+    <div *ngFor="let subject of subjectsArr">
+      <ion-row>
+        <ion-col class="subject">
+          {{subject}}
+        </ion-col>
+      </ion-row>
 
+      <ion-row class="grade-absense">
+        <ion-col size="6">
+          10 faltas
+        </ion-col>
+        <ion-col>
+          7.5
+        </ion-col>
+      </ion-row>
 
-    <ion-row class="grade-absense">
-      <ion-col size="6">
-        10 faltas
-      </ion-col>
-      <ion-col>
-        7.5
-      </ion-col>
-    </ion-row>
+    </div>
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-col class="subject">
         Comunicação Digital, Redes e Internet
       </ion-col>
@@ -109,7 +111,7 @@
       <ion-col>
         9.5
       </ion-col>
-    </ion-row>
+    </ion-row> -->
 
   </div>
 

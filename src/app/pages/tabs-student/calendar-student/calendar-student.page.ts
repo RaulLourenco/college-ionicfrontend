@@ -7,6 +7,13 @@ import { Router } from '@angular/router';
 })
 export class CalendarStudentPage implements OnInit {
 
+  events: any[] = [
+    {id: "evento1", name: "Raul"},
+    {id: "evento1", name: "Raul"},
+    {id: "evento1", name: "Raul"},
+    {id: "evento1", name: "Raul"},
+    {id: "evento1", name: "Raul"}
+  ]
   constructor(private router: Router) { }
 
   ngOnInit() {
