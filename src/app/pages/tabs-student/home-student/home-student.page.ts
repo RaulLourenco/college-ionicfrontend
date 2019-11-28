@@ -20,7 +20,6 @@ export class HomeStudentPage implements OnInit {
   }
 
   public async subjects() {
-    //verificar qual user esta logado
     const user = firebase.auth().currentUser;
     const userEmail = user.email;
     this.db.collection('students').doc(userEmail).get().toPromise().then(
@@ -36,7 +35,6 @@ export class HomeStudentPage implements OnInit {
               let arr = [];
               const subjectData = subject.data();
               arr.push(subjectData.name);
-              console.log('subjectData: ', subjectData);
               console.log('this.subjectsArr: ', arr[0]);
               this.subjectsArray.push(arr[0]);
               return this.subjectsArray;

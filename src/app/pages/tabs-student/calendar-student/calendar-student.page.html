@@ -13,11 +13,11 @@
 
 <ion-content>
     <p class="title">Minha Agenda</p>
-    <div class="schedule" *ngFor="let event of events">
-        <p>{{event.id}}</p>
-        <p>{{event.name}}</p>
+    <div class="schedule" *ngFor="let event of eventsArr">
+        <p>{{event}}</p>
+    </div>
 
-        <!--
+    <!--
         <ion-item>
             <ion-row class="item">
                 <ion-col size="10">
@@ -62,7 +62,7 @@
             </ion-row>
                 <ion-icon (click)="delete()" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
         </ion-item> -->
-    </div>
+
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button (click)="addEvent()" color="success" fill="clear">

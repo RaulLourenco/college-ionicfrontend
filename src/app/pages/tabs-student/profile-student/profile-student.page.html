@@ -20,8 +20,8 @@
         </ion-col>
 
         <ion-col class="avatar-name">
-            <p>Raul Lourenço dos Santos</p>
-            <p class="profile-type">Perfil - Aluno</p>
+            <p>{{userName}}</p>
+            <p class="profile-type">Perfil - {{userProfile}}</p>
         </ion-col>
     </ion-row>
     <ion-item>
@@ -34,7 +34,7 @@
                 <p class="list-item">Turma</p>
             </ion-col>
             <ion-col>
-                <p class="list-item-child">ECP6BN-MCA [19h10 às 22h40]</p>
+                <p class="list-item-child">{{userClass}}</p>
             </ion-col>
         </ion-row>
     </ion-item>
@@ -44,7 +44,7 @@
                 <p class="list-item">RA</p>
             </ion-col>
             <ion-col>
-                <p class="list-item-child">816118477</p>
+                <p class="list-item-child">{{userRa}}</p>
             </ion-col>
         </ion-row>
     </ion-item>
@@ -54,7 +54,7 @@
                 <p class="list-item">E-mail</p>
             </ion-col>
             <ion-col>
-                <p class="list-item-child">raulsantos.8477@aluno.saojudas.br</p>
+                <p class="list-item-child">{{userEmail}}</p>
             </ion-col>
         </ion-row>
     </ion-item>
