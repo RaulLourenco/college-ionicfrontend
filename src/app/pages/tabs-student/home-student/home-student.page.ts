@@ -8,12 +8,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class HomeStudentPage implements OnInit {
 
-  private subjectsArr = [];
-  private userName;
+  subjectsArray = [];
+  userName;
+  userAbsense;
+  userGrade;
 
   constructor(private db: AngularFirestore) { }
 
   ngOnInit() {
+    this.subjects();
   }
 
   public async subjects() {
@@ -26,12 +29,17 @@ export class HomeStudentPage implements OnInit {
           const userData = doc.data();
           const userClass = userData.class;
           this.userName = userData.name.split(' ')[0];
+          this.userAbsense = userData.absense;
+          this.userGrade = userData.grade;
           this.db.collection('subjects').doc(userClass).get().toPromise().then(subject => {
             if (subject.exists) {
+              let arr = [];
               const subjectData = subject.data();
-              this.subjectsArr.push(subjectData);
+              arr.push(subjectData.name);
               console.log('subjectData: ', subjectData);
-              return this.subjectsArr;
+              console.log('this.subjectsArr: ', arr[0]);
+              this.subjectsArray.push(arr[0]);
+              return this.subjectsArray;
             }
           }).catch(err => {
             console.error(err.code);

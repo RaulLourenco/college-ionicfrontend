@@ -35,7 +35,7 @@
       </ion-col>
     </ion-row>
 
-    <div *ngFor="let subject of subjectsArr">
+    <div *ngFor="let subject of subjectsArray">
       <ion-row>
         <ion-col class="subject">
           {{subject}}
@@ -44,10 +44,10 @@
 
       <ion-row class="grade-absense">
         <ion-col size="6">
-          10 faltas
+          {{userAbsense}} faltas
         </ion-col>
         <ion-col>
-          7.5
+          {{userGrade}}
         </ion-col>
       </ion-row>
 
