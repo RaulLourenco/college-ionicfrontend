@@ -9,9 +9,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class HomeStudentPage implements OnInit {
 
   subjectsArray = [];
+  performanceArray = [];
   userName;
-  userAbsense;
-  userGrade;
 
   constructor(private db: AngularFirestore) { }
 
@@ -19,34 +18,25 @@ export class HomeStudentPage implements OnInit {
     this.subjects();
   }
 
-  public async subjects() {
+  public subjects() {
     const user = firebase.auth().currentUser;
     const userEmail = user.email;
-    this.db.collection('students').doc(userEmail).get().toPromise().then(
-      async doc => {
-        if (doc.exists) {
-          const userData = doc.data();
-          const userClass = userData.class;
-          this.userName = userData.name.split(' ')[0];
-          this.userAbsense = userData.absense;
-          this.userGrade = userData.grade;
-          this.db.collection('subjects').doc(userClass).get().toPromise().then(subject => {
-            if (subject.exists) {
-              let arr = [];
-              const subjectData = subject.data();
-              arr.push(subjectData.name);
-              console.log('this.subjectsArr: ', arr[0]);
-              this.subjectsArray.push(arr[0]);
-              return this.subjectsArray;
-            }
-          }).catch(err => {
-            console.error(err.code);
-            console.error(err.message);
-          });
-        }
-      }).catch(err => {
-        console.error(err.code);
-        console.error(err.message);
-      });
+    this.db.collection('students').doc(userEmail).get().subscribe(doc => {
+      if (doc.exists) {
+        const userData = doc.data();
+        const userClass = userData.class;
+        this.userName = userData.name.split(' ')[0];
+        this.performanceArray = userData.performance;
+        this.db.collection('subjects').doc(userClass).get().toPromise().then(subject => {
+          if (subject.exists) {
+            const subjectData = subject.data();
+            this.subjectsArray = subjectData.name;
+          }
+        }).catch(err => {
+          console.error(err.code);
+          console.error(err.message);
+        });
+      }
+    });
   }
 }

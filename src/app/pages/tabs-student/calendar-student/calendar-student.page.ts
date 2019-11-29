@@ -26,17 +26,21 @@ export class CalendarStudentPage implements OnInit {
     const user = firebase.auth().currentUser;
     const userEmail = user.email;
     console.log('userEmail', userEmail);
-    this.db.collection('events').doc(userEmail).get().toPromise().then(
+    this.db.collection('students').doc(userEmail).get().toPromise().then(
       async event => {
       if (event.exists) {
         const events = event.data();
-        this.eventsArr.push(event.data());
+        this.eventsArr = event.data().events;
         console.log('events: ', events);
       }
     }).catch(err => {
       console.error(err.code);
       console.error(err.message);
     });
+  }
+
+  public delete(){
+    console.log('deletando');
   }
 
 }
