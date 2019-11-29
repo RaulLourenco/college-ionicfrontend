@@ -19,7 +19,7 @@ export class CalendarStudentPage implements OnInit {
   }
 
   public addEvent() {
-    this.router.navigate(['/newevent']);
+    this.router.navigate(['/newevent-student']);
   }
 
   public events() {

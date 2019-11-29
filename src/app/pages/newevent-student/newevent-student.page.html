@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-col class="header-title" size="8">
+        <p class="header-title">Novo Evento</p>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form class="form" [formGroup]="eventStudent" (click)="onFinish(eventForm.value.description, eventForm.value.date)">
+
+    <ion-item>
+      <ion-label class="form-label" position="floating">
+        Descrição
+      </ion-label>
+      <ion-input formControlName="description" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="form-label" position="floating">
+        Data
+      </ion-label>
+      <ion-datetime formControlName="date" displayFormat="DD MM YY"></ion-datetime>
+    </ion-item>
+
+    <ion-toolbar class="buttons-toolbar">
+      <ion-button fill="outline" size="large" shape="round" (click)="goBack()">
+        Cancelar
+      </ion-button>
+      <ion-button shape="round" size="large" type="submit" color="primary">
+        Salvar
+      </ion-button>
+    </ion-toolbar>
+
+  </form>
+
+</ion-content>
