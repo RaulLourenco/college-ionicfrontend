@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire'
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { Camera } from '@ionic-native/camera/ngx';
+import { AngularFireStorageModule } from '@angular/fire/storage';          
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,6 +28,7 @@ import { Camera } from '@ionic-native/camera/ngx';
             LoginPageModule,
             AngularFireModule.initializeApp(environment.firebase),
             AngularFirestoreModule,
+            AngularFireStorageModule
           ],
   providers: [
     StatusBar,
