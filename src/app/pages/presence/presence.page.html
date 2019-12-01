@@ -13,15 +13,17 @@
 
 <ion-content>
 
-  <ion-row>
-    <p class="subject">Cálculo Avançado</p>
-  </ion-row>
+  <div *ngFor="let class of classArray">
+    <ion-row>
+      <p class="subject">{{class.name}}</p>
+    </ion-row>
 
-  <ion-row>
-    <ion-col class="subject-subtitle">
-      Turma 3º B - Semestre 2 - Lista de Presença
-    </ion-col>
-  </ion-row>
+    <ion-row>
+      <ion-col class="subject-subtitle">
+        Turma {{class.class}} - Semestre {{class.period}} - Lista de Presença
+      </ion-col>
+    </ion-row>
+  </div>
 
   <ion-item>
     <ion-label>Data</ion-label>
@@ -41,22 +43,23 @@
       Presença
     </ion-col>
   </ion-row>
-  
-  <div *ngFor="let student of studentName"> 
-    <p>{{student.name}}</p>
-    <!-- <p>{{student.performance.absense}}</p> -->
-  </div>
 
-  <!-- <div *ngFor="let student of studentsArray">
+  <div *ngFor="let name of studentName">
     <ion-row>
       <ion-col size="3">
         <ion-avatar class="avatar">
-          <img src="../../../assets/images/jhonatan_jose.jpg" />
+          <img src="../../../assets/images/avatar.png" />
         </ion-avatar>
       </ion-col>
       <ion-col class="student" size="6">
-        {{student.name}}<br>
-        <p class="amountAbsense">{{student.performance.absense}} falta(s) no semestre</p>
+        {{name}}<br>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngFor="let perfomance of studentPerformance">
+    <ion-row>
+      <ion-col>
+        <p class="amountAbsense">{{perfomance}} falta(s) no semestre</p>
       </ion-col>
       <ion-col class="checkbox" size="3">
         <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
@@ -65,97 +68,7 @@
         <ion-row></ion-row>
       </ion-item>
     </ion-row>
-  </div> -->
-
-  <!-- <ion-row>
-    <ion-col size="3">
-      <ion-avatar class="avatar">
-        <img src="../../../assets/images/kaique_lima.jpg" />
-      </ion-avatar>
-    </ion-col>
-    <ion-col class="student" size="6">
-      Kaique Lima Andre<br>
-      <p class="amountAbsense">7 falta(s) no semestre</p>
-    </ion-col>
-    <ion-col class="checkbox" size="3">
-      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
-    </ion-col>
-    <ion-item class="emptyItem">
-      <ion-row></ion-row>
-    </ion-item>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="3">
-      <ion-avatar class="avatar">
-        <img src="../../../assets/images/lucas_rodrigues.jpg" />
-      </ion-avatar>
-    </ion-col>
-    <ion-col class="student" size="6">
-      Lucas Sousa Rodrigues<br>
-      <p class="amountAbsense">4 falta(s) no semestre</p>
-    </ion-col>
-    <ion-col class="checkbox" size="3">
-      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
-    </ion-col>
-    <ion-item class="emptyItem">
-      <ion-row></ion-row>
-    </ion-item>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="3">
-      <ion-avatar class="avatar">
-        <img src="../../../assets/images/lucas_valero.jpg" />
-      </ion-avatar>
-    </ion-col>
-    <ion-col class="student" size="6">
-      Lucas Valero Pontes<br>
-      <p class="amountAbsense">0 falta(s) no semestre</p>
-    </ion-col>
-    <ion-col class="checkbox" size="3">
-      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
-    </ion-col>
-    <ion-item class="emptyItem">
-      <ion-row></ion-row>
-    </ion-item>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="3">
-      <ion-avatar class="avatar">
-        <img src="../../../assets/images/raul_lourenco.jpg" />
-      </ion-avatar>
-    </ion-col>
-    <ion-col class="student" size="6">
-      Raul Lourenço dos Santos<br>
-      <p class="amountAbsense">2 falta(s) no semestre</p>
-    </ion-col>
-    <ion-col class="checkbox" size="3">
-      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
-    </ion-col>
-    <ion-item class="emptyItem">
-      <ion-row></ion-row>
-    </ion-item>
-  </ion-row>
-
-  <ion-row>
-    <ion-col size="3">
-      <ion-avatar class="avatar">
-        <img src="../../../assets/images/cadeiras.jpg" />
-      </ion-avatar>
-    </ion-col>
-    <ion-col class="student" size="6">
-      Guilherme Gentil<br>
-      <p class="amountAbsense">8 falta(s) no semestre</p>
-    </ion-col>
-    <ion-col class="checkbox" size="3">
-      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
-    </ion-col>
-    <ion-item class="emptyItem">
-      <ion-row></ion-row>
-    </ion-item>
-  </ion-row> -->
+  </div>
 
   <ion-fab class="cameraButton" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="openCamera()" color="success" fill="clear">

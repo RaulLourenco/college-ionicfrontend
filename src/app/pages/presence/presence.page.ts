@@ -12,12 +12,14 @@ export class PresencePage implements OnInit {
 
   studentName = [];
   studentPerformance = [];
+  classArray = [];
 
   constructor(private db: AngularFirestore,
     private camera: Camera,
     private storage: AngularFireStorage) { }
 
   ngOnInit() {
+    this.infoClass('ECP6BN-MCA');
   }
 
   customPopoverOptions: any = {
@@ -29,35 +31,73 @@ export class PresencePage implements OnInit {
   public async infoClass(userClass) {
     let arr: any = [];
     console.log('userClass recebido: ', userClass);
+    this.classInformation(userClass);
     const snapshot = await firebase.firestore().collection('students').get();
     const wholeStudents = snapshot.docs.map(doc => {
       const studentsData = doc.data();
       return studentsData;
     });
     arr = wholeStudents;
-    for (let i = 0; i < arr.length; i++) {
-      const email = arr[i].email;
-      this.db.collection('students').doc(email).get().toPromise().then(async student => {
-        if (student.exists) {
-          const students = student.data();
-          if (students.class == userClass) {
-            console.log('O aluno pertence a turma!');
-            arr = students;
-            this.studentName = arr.name;
-            this.studentPerformance = arr.performance[i].absense;
-            console.log('este eh o nome: ', this.studentName);
-            console.log('este eh o absense: ', this.studentPerformance);
-          } else {
-            console.log('Este aluno não pertence a essa classe!')
+    try {
+      let students;
+      let arrName = [];
+      let arrPerformance = [];
+      arr.map(doc => {
+        this.db.collection('students').doc(doc.email).get().toPromise().then(student => {
+          if (student.exists) {
+            students = student.data();
+            if (students.class == userClass) {
+              console.log('O aluno pertence a turma!');
+              doc.performance.map(performance => {
+                if (performance.name == 'Projeto Interdisciplinar - 6B') {
+                  arrName.push(doc.name);
+                  arrPerformance.push(performance.absense);
+                }
+              });
+            }
           }
-        }
+        });
       });
+      console.log('este eh o arrName:', arrName);
+      console.log('este eh o arrPerfomance: ', arrPerformance);
+      this.studentName = arrName;
+      this.studentPerformance = arrPerformance;
+    } catch (err) {
+      console.error(err.message);
+      console.error(err.code);
     }
-    console.log('this.studentName', this.studentName);
-    console.log('this.studentPerformance', this.studentPerformance);
   }
 
-  public savePresence(){
+  public async classInformation(userClass) {
+    const user = firebase.auth().currentUser;
+    const professorEmail = user.email;
+    let className;
+    this.db.collection('subjects').doc(userClass).get().toPromise().then(subj => {
+      if (subj.exists) {
+        const subjData = subj.data();
+        className = subjData.name;
+      }
+    });
+    this.db.collection('professor').doc(professorEmail).get().toPromise().then(prof => {
+      if (prof.exists) {
+        const profData = prof.data();
+        let classesArray = [];
+        classesArray = profData.classes;
+        for (let i = 0; i < classesArray.length; i++) {
+          className.map(name => {
+            if (name == classesArray[i].name) {
+              const arr = [];
+              arr.push(classesArray[i]);
+              this.classArray = arr;
+            }
+          });
+        }
+        return this.classArray;
+      }
+    });
+  }
+
+  public savePresence() {
     console.log('SALVANDO!')
   }
 
