@@ -10,7 +10,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PresencePage implements OnInit {
 
-  studentsArray = [] as any;
+  studentName = [];
+  studentPerformance = [];
 
   constructor(private db: AngularFirestore,
     private camera: Camera,
@@ -42,13 +43,18 @@ export class PresencePage implements OnInit {
           if (students.class == userClass) {
             console.log('O aluno pertence a turma!');
             arr = students;
+            this.studentName = arr.name;
+            this.studentPerformance = arr.performance[i].absense;
+            console.log('este eh o nome: ', this.studentName);
+            console.log('este eh o absense: ', this.studentPerformance);
           } else {
             console.log('Este aluno não pertence a essa classe!')
           }
         }
       });
-      this.studentsArray = arr;
     }
+    console.log('this.studentName', this.studentName);
+    console.log('this.studentPerformance', this.studentPerformance);
   }
 
   public openCamera() {

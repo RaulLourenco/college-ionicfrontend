@@ -41,8 +41,13 @@
       Presença
     </ion-col>
   </ion-row>
+  
+  <div *ngFor="let student of studentName"> 
+    <p>{{student.name}}</p>
+    <!-- <p>{{student.performance.absense}}</p> -->
+  </div>
 
-  <div *ngFor="let student of studentsArray">
+  <!-- <div *ngFor="let student of studentsArray">
     <ion-row>
       <ion-col size="3">
         <ion-avatar class="avatar">
@@ -60,7 +65,7 @@
         <ion-row></ion-row>
       </ion-item>
     </ion-row>
-  </div>
+  </div> -->
 
   <!-- <ion-row>
     <ion-col size="3">
