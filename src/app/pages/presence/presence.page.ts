@@ -30,7 +30,6 @@ export class PresencePage implements OnInit {
 
   public async infoClass(userClass) {
     let arr: any = [];
-    console.log('userClass recebido: ', userClass);
     this.classInformation(userClass);
     const snapshot = await firebase.firestore().collection('students').get();
     const wholeStudents = snapshot.docs.map(doc => {
@@ -58,8 +57,6 @@ export class PresencePage implements OnInit {
           }
         });
       });
-      console.log('este eh o arrName:', arrName);
-      console.log('este eh o arrPerfomance: ', arrPerformance);
       this.studentName = arrName;
       this.studentPerformance = arrPerformance;
     } catch (err) {
