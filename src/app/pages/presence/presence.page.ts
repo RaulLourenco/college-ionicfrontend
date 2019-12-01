@@ -57,6 +57,10 @@ export class PresencePage implements OnInit {
     console.log('this.studentPerformance', this.studentPerformance);
   }
 
+  public savePresence(){
+    console.log('SALVANDO!')
+  }
+
   public openCamera() {
     const options: CameraOptions = {
       quality: 100,
