@@ -22,10 +22,10 @@ export class NeweventPage implements OnInit {
     this.router.navigate(['/home/tabs/calendar']);
   }
 
-  public onFinish(description, date){
+  public onFinish(description, date) {
     console.log(description, date);
   }
-
+  
   initializeForm() {
     this.eventForm = this.formBuilder.group({
       description: ['', Validators.required],

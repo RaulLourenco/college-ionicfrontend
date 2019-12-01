@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-newevent-student',
   templateUrl: './newevent-student.page.html',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class NeweventStudentPage implements OnInit {
 
-  eventStudent: FormGroup;
+  eventForm: FormGroup;
 
   constructor(private router: Router,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private db: AngularFirestore) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -21,16 +23,12 @@ export class NeweventStudentPage implements OnInit {
     this.router.navigate(['/home/tabs-student/calendar-student']);
   }
 
-  public onFinish(description, date){
+  public onFinish(description, date) {
     console.log(description, date);
   }
 
-  public save(){
-    console.log('salvando');
-  }
-
   initializeForm() {
-    this.eventStudent = this.formBuilder.group({
+    this.eventForm = this.formBuilder.group({
       description: ['', Validators.required],
       date: ['', Validators.required]
     });
