@@ -44,10 +44,8 @@ export class PresencePage implements OnInit {
           if (student.exists) {
             students = student.data();
             if (students.class == userClass) {
-              console.log('O aluno pertence a turma!');
               doc.performance.map(performance => {
                 if (performance.name == 'Projeto Interdisciplinar - 6B') {
-                  console.log('ENTROU NO IF')
                   arrPerformance.push(performance);
                 }
               });

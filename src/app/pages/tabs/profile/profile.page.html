@@ -20,8 +20,8 @@
         </ion-col>
 
         <ion-col class="avatar-name">
-            <h4>Pedro Cardozo Jr.</h4>
-            <p class="profile-type">Perfil - Professor</p>
+            <h4>{{professorName}}</h4>
+            <p class="profile-type">Perfil - {{professorProfile}}</p>
         </ion-col>
     </ion-row>
     <ion-item>
@@ -34,7 +34,7 @@
                 <p class="list-item">Matérias</p>
             </ion-col>
             <ion-col>
-                <p class="list-item-child">Cálculo Diferencial, Cálculo Integral, Sistemas Operacionais</p>
+                <p class="list-item-child">{{professorSubjects}}</p>
             </ion-col>
         </ion-row>
     </ion-item>
@@ -44,7 +44,7 @@
                 <p class="list-item">Telefone</p>
             </ion-col>
             <ion-col>
-                <p class="list-item-child">(11) 97721-4850</p>
+                <p class="list-item-child">{{professorPhone}}</p>
             </ion-col>
         </ion-row>
     </ion-item>
@@ -54,7 +54,7 @@
                 <p class="list-item">E-mail</p>
             </ion-col>
             <ion-col>
-                <p class="list-item-child">prof.cardozo@usjt.br</p>
+                <p class="list-item-child">{{professorEmail}}</p>
             </ion-col>
         </ion-row>
     </ion-item>
