@@ -42,25 +42,27 @@
     </ion-col>
   </ion-row>
 
-  <ion-row>
-    <ion-col size="3">
-      <ion-avatar class="avatar">
-        <img src="../../../assets/images/jhonatan_jose.jpg" />
-      </ion-avatar>
-    </ion-col>
-    <ion-col class="student" size="6">
-      Jhonatan Jose da Silva<br>
-      <p class="amountAbsense">0 falta(s) no semestre</p>
-    </ion-col>
-    <ion-col class="checkbox" size="3">
-      <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
-    </ion-col>
-    <ion-item class="emptyItem">
-      <ion-row></ion-row>
-    </ion-item>
-  </ion-row>
+  <div *ngFor="let student of studentsArray">
+    <ion-row>
+      <ion-col size="3">
+        <ion-avatar class="avatar">
+          <img src="../../../assets/images/jhonatan_jose.jpg" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col class="student" size="6">
+        {{student.name}}<br>
+        <p class="amountAbsense">{{student.performance.absense}} falta(s) no semestre</p>
+      </ion-col>
+      <ion-col class="checkbox" size="3">
+        <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
+      </ion-col>
+      <ion-item class="emptyItem">
+        <ion-row></ion-row>
+      </ion-item>
+    </ion-row>
+  </div>
 
-  <ion-row>
+  <!-- <ion-row>
     <ion-col size="3">
       <ion-avatar class="avatar">
         <img src="../../../assets/images/kaique_lima.jpg" />
@@ -148,7 +150,7 @@
     <ion-item class="emptyItem">
       <ion-row></ion-row>
     </ion-item>
-  </ion-row>
+  </ion-row> -->
 
   <ion-fab class="cameraButton" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="openCamera()" color="success" fill="clear">

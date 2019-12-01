@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.page.html',
@@ -7,13 +9,35 @@ import { Router } from '@angular/router';
 })
 export class CalendarPage implements OnInit {
 
-  constructor(private router: Router) { }
+  eventsArr = [];
+
+  constructor(private router: Router,
+              private db: AngularFirestore) { }
 
   ngOnInit() {
+    this.events();
   }
 
-  public addEvent(){
+  public addEvent() {
     this.router.navigate(['/newevent']);
+  }
+
+  public events() {
+    const user = firebase.auth().currentUser;
+    const userEmail = user.email;
+    this.db.collection('professor').doc(userEmail).get().toPromise().then(
+      async event => {
+        if (event.exists) {
+          this.eventsArr = event.data().events;
+        }
+      }).catch(err => {
+        console.error(err.code);
+        console.error(err.message);
+      });
+  }
+
+  public delete() {
+    console.log('deletando');
   }
 
 }

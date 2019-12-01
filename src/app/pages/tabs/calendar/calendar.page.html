@@ -13,50 +13,19 @@
 
 <ion-content>
     <p class="title">Minha Agenda</p>
-    <div class="schedule">
+
+
+    <div class="schedule" *ngFor="let event of eventsArr">
         <ion-item>
             <ion-row class="item">
                 <ion-col size="10">
-                    Prova - ECP6AN-MCA
+                    {{event.description}}
                 </ion-col>
                 <ion-col class="second-item">
-                    [23/11/2019 - 19h10]
+                    {{event.date}}
                 </ion-col>
             </ion-row>
             <ion-icon (click)="delete()" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
-        </ion-item>
-        <ion-item>
-            <ion-row class="item">
-                <ion-col size="10">
-                    Atividade - ECP7AN-MCA
-                </ion-col>
-                <ion-col class="second-item">
-                    [27/11/2019 - 21h00]
-                </ion-col>
-            </ion-row>
-            <ion-icon (click)="delete()" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
-        </ion-item>
-        <ion-item>
-            <ion-row class="item">
-                <ion-col size="10">
-                    Atividade - ECP8AN-MCA
-                </ion-col>
-                <ion-col class="second-item">
-                    [27/11/2019 - 19h10]
-                </ion-col>
-            </ion-row>
-            <ion-icon (click)="delete()" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
-        </ion-item>
-        <ion-item>
-            <ion-row class="item">
-                <ion-col size="10">
-                    Prova - ECP9AN-MCA
-                </ion-col>
-                <ion-col class="second-item">
-                    [30/11/2019 - 21h00]
-                </ion-col>
-            </ion-row>
-                <ion-icon (click)="delete()" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
         </ion-item>
     </div>
 

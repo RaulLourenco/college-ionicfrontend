@@ -10,9 +10,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PresencePage implements OnInit {
 
+  studentsArray = [] as any;
+
   constructor(private db: AngularFirestore,
-              private camera: Camera,
-              private storage: AngularFireStorage) { }
+    private camera: Camera,
+    private storage: AngularFireStorage) { }
 
   ngOnInit() {
   }
@@ -23,13 +25,30 @@ export class PresencePage implements OnInit {
     message: 'Selecione uma das datas abaixo.'
   };
 
-  public infoClass(userClass) {
-    const user = firebase.auth().currentUser;
-    const userEmail = user.email;
-    this.db.collection('professor').doc(userEmail).get().subscribe(professor => {
-      if (professor.exists) {
-      }
+  public async infoClass(userClass) {
+    let arr: any = [];
+    console.log('userClass recebido: ', userClass);
+    const snapshot = await firebase.firestore().collection('students').get();
+    const wholeStudents = snapshot.docs.map(doc => {
+      const studentsData = doc.data();
+      return studentsData;
     });
+    arr = wholeStudents;
+    for (let i = 0; i < arr.length; i++) {
+      const email = arr[i].email;
+      this.db.collection('students').doc(email).get().toPromise().then(async student => {
+        if (student.exists) {
+          const students = student.data();
+          if (students.class == userClass) {
+            console.log('O aluno pertence a turma!');
+            arr = students;
+          } else {
+            console.log('Este aluno não pertence a essa classe!')
+          }
+        }
+      });
+      this.studentsArray = arr;
+    }
   }
 
   public openCamera() {
@@ -52,6 +71,7 @@ export class PresencePage implements OnInit {
     return new Promise(async (resolve, reject) => {
 
       // let fileName = `${key}_${this.photoData.date}`;
+      const newDate = new Date();
       let fileName = '30-11-2019';
       // let filePath = `ECP6BN-MCA/${key}/${fileName}`;
       let filePath = `ECP6BN-MCA/${fileName}`;
