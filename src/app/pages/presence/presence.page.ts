@@ -10,7 +10,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PresencePage implements OnInit {
 
-  studentName = [];
   studentPerformance = [];
   classArray = [];
 
@@ -39,7 +38,6 @@ export class PresencePage implements OnInit {
     arr = wholeStudents;
     try {
       let students;
-      let arrName = [];
       let arrPerformance = [];
       arr.map(doc => {
         this.db.collection('students').doc(doc.email).get().toPromise().then(student => {
@@ -49,15 +47,14 @@ export class PresencePage implements OnInit {
               console.log('O aluno pertence a turma!');
               doc.performance.map(performance => {
                 if (performance.name == 'Projeto Interdisciplinar - 6B') {
-                  arrName.push(doc.name);
-                  arrPerformance.push(performance.absense);
+                  console.log('ENTROU NO IF')
+                  arrPerformance.push(performance);
                 }
               });
             }
           }
         });
       });
-      this.studentName = arrName;
       this.studentPerformance = arrPerformance;
     } catch (err) {
       console.error(err.message);

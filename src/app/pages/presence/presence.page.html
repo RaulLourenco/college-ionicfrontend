@@ -44,7 +44,7 @@
     </ion-col>
   </ion-row>
 
-  <div *ngFor="let name of studentName">
+  <div *ngFor="let performance of studentPerformance">
     <ion-row>
       <ion-col size="3">
         <ion-avatar class="avatar">
@@ -52,14 +52,8 @@
         </ion-avatar>
       </ion-col>
       <ion-col class="student" size="6">
-        {{name}}<br>
-      </ion-col>
-    </ion-row>
-  </div>
-  <div *ngFor="let perfomance of studentPerformance">
-    <ion-row>
-      <ion-col>
-        <p class="amountAbsense">{{perfomance}} falta(s) no semestre</p>
+        {{performance.studentName}}<br>
+        <p class="amountAbsense">{{performance.absense}} falta(s) no semestre</p>
       </ion-col>
       <ion-col class="checkbox" size="3">
         <ion-checkbox class="checkbox-child" mode="md" color="success"></ion-checkbox>
@@ -69,6 +63,7 @@
       </ion-item>
     </ion-row>
   </div>
+
 
   <ion-fab class="cameraButton" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="openCamera()" color="success" fill="clear">
