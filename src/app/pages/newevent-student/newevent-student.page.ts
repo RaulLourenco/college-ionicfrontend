@@ -3,7 +3,6 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
-import { CalendarStudentPage } from '../tabs-student/calendar-student/calendar-student.page';
 @Component({
   selector: 'app-newevent-student',
   templateUrl: './newevent-student.page.html',
@@ -15,8 +14,7 @@ export class NeweventStudentPage implements OnInit {
 
   constructor(private router: Router,
     private formBuilder: FormBuilder,
-    private db: AngularFirestore,
-    private calendarPage: CalendarStudentPage) { }
+    private db: AngularFirestore) { }
 
   ngOnInit() {
     this.initializeForm();
