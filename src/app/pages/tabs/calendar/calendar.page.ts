@@ -12,7 +12,7 @@ export class CalendarPage implements OnInit {
   eventsArr = [];
 
   constructor(private router: Router,
-              private db: AngularFirestore) { }
+    private db: AngularFirestore) { }
 
   ngOnInit() {
     this.events();
@@ -20,6 +20,10 @@ export class CalendarPage implements OnInit {
 
   public addEvent() {
     this.router.navigate(['/newevent']);
+  }
+
+  ionViewWillEnter() {
+    this.events();
   }
 
   public events() {

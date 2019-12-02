@@ -15,11 +15,15 @@ export class CalendarStudentPage implements OnInit {
     private db: AngularFirestore) { }
 
   ngOnInit() {
-    this.events();
+
   }
 
   public addEvent() {
     this.router.navigate(['/newevent-student']);
+  }
+
+  ionViewWillEnter() {
+    this.events();
   }
 
   public events() {
@@ -27,16 +31,16 @@ export class CalendarStudentPage implements OnInit {
     const userEmail = user.email;
     this.db.collection('students').doc(userEmail).get().toPromise().then(
       async event => {
-      if (event.exists) {
-        this.eventsArr = event.data().events;
-      }
-    }).catch(err => {
-      console.error(err.code);
-      console.error(err.message);
-    });
+        if (event.exists) {
+          this.eventsArr = event.data().events;
+        }
+      }).catch(err => {
+        console.error(err.code);
+        console.error(err.message);
+      });
   }
 
-  public delete(){
+  public delete() {
     console.log('deletando');
   }
 

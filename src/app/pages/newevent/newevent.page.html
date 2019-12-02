@@ -13,7 +13,7 @@
 
 <ion-content>
 
-  <form class="form" [formGroup]="eventForm" (click)="onFinish(eventForm.value.description, eventForm.value.date)">
+  <form class="form" [formGroup]="eventForm">
 
     <ion-item>
       <ion-label class="form-label" position="floating">
@@ -26,14 +26,14 @@
       <ion-label class="form-label" position="floating">
         Data
       </ion-label>
-      <ion-datetime formControlName="date" displayFormat="DD MM YY"></ion-datetime>
+      <ion-datetime formControlName="date" displayFormat="YYYY-MM-DD"></ion-datetime>
     </ion-item>
 
     <ion-toolbar class="buttons-toolbar">
       <ion-button fill="outline" size="large" shape="round" (click)="goBack()">
         Cancelar
       </ion-button>
-      <ion-button shape="round" size="large" type="submit" color="primary">
+      <ion-button shape="round" size="large" (click)="onFinish(eventForm.value.description, eventForm.value.date)" color="primary">
         Salvar
       </ion-button>
     </ion-toolbar>

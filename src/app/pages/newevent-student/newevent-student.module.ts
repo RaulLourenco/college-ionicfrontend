@@ -24,4 +24,4 @@ const routes: Routes = [
   ],
   declarations: [NeweventStudentPage]
 })
-export class NeweventStudentPageModule {}
+export class NeweventStudentPageModule { }

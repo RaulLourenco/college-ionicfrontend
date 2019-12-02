@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+import { CalendarStudentPage } from '../tabs-student/calendar-student/calendar-student.page';
 @Component({
   selector: 'app-newevent-student',
   templateUrl: './newevent-student.page.html',
@@ -13,7 +15,8 @@ export class NeweventStudentPage implements OnInit {
 
   constructor(private router: Router,
     private formBuilder: FormBuilder,
-    private db: AngularFirestore) { }
+    private db: AngularFirestore,
+    private calendarPage: CalendarStudentPage) { }
 
   ngOnInit() {
     this.initializeForm();
@@ -24,7 +27,16 @@ export class NeweventStudentPage implements OnInit {
   }
 
   public onFinish(description, date) {
-    console.log(description, date);
+    const model = {
+      description: description,
+      date: date.split('T')[0]
+    }
+    let events: any = [];
+    events = model;
+    const user = firebase.auth().currentUser;
+    const userEmail = user.email;
+    this.db.collection('students').doc(userEmail).update({ events: firebase.firestore.FieldValue.arrayUnion(events) });
+    this.router.navigate(['/home/tabs-student/calendar-student']);
   }
 
   initializeForm() {
