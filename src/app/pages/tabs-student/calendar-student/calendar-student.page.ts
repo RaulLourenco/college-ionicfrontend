@@ -40,8 +40,18 @@ export class CalendarStudentPage implements OnInit {
       });
   }
 
-  public delete() {
+  public delete(description, date) {
     console.log('deletando');
+    const model = {
+      description,
+      date
+    }
+    let events: any = [];
+    events = model;
+    const user = firebase.auth().currentUser;
+    const userEmail = user.email;
+    this.db.collection('students').doc(userEmail).update({ events: firebase.firestore.FieldValue.arrayRemove(events) });
+    this.router.navigate(['/home/tabs-student/calendar-student']);
   }
 
 }

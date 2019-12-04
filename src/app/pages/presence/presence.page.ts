@@ -3,6 +3,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/storage';
 import * as firebase from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { formatDate } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-presence',
   templateUrl: './presence.page.html',
@@ -15,7 +17,8 @@ export class PresencePage implements OnInit {
 
   constructor(private db: AngularFirestore,
     private camera: Camera,
-    private storage: AngularFireStorage) { }
+    private storage: AngularFireStorage,
+    private router: Router) { }
 
   ngOnInit() {
     this.infoClass('ECP6BN-MCA');
@@ -90,7 +93,8 @@ export class PresencePage implements OnInit {
   }
 
   public savePresence() {
-    console.log('SALVANDO!')
+    console.log('SALVANDO!');
+    this.router.navigate(['/home/tabs/home']);
   }
 
   public openCamera() {
@@ -109,36 +113,30 @@ export class PresencePage implements OnInit {
     });
   }
 
-  uploadImagesAndUpdatePresence(image): Promise<any> {
+  async uploadImagesAndUpdatePresence(image): Promise<any> {
     return new Promise(async (resolve, reject) => {
 
-      // let fileName = `${key}_${this.photoData.date}`;
-      const newDate = new Date();
-      let fileName = '30-11-2019';
-      // let filePath = `ECP6BN-MCA/${key}/${fileName}`;
+      const newDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
+      let fileName = `${image}_${newDate}`;
       let filePath = `ECP6BN-MCA/${fileName}`;
       const fileRef: AngularFireStorageReference = this.storage.ref(filePath);
-      let data = await fileRef.putString(image, 'data_url');
-      console.log('UPLOAD DA IMAGEM');
-      resolve(console.log('A FOTO FOI ENVIADA!'));
-      // try {
-      //   // Upando a imagem base64
-      //   let data = await fileRef.putString(this.photoData.img, 'data_url');
-      //   let arrayUrl = [];
-      //   // Aguardando a url da foto ficar disponivel e colocala no array;
-      //   fileRef.getDownloadURL().subscribe(async (url) => {
-      //     console.log('url', url);
-      //     if (url) {
-      //       arrayUrl.push(url);
-      //       console.log('arrayUrl', arrayUrl);
-      //       await this.afDatabase.object('adocao/pets/' + key).update({ "fotoUrls": arrayUrl });
-      //       console.log('fotoUrl inserida');
-      //       resolve('Foto inserida');
-      //     }
-      //   }, erro => reject(erro));
-      // } catch (e) {
-      //   reject(e);
-      // }
+
+      try {
+        // Upando a imagem base64
+        let data = await fileRef.putString(image, 'data_url');
+        let arrayUrl = [];
+        // Aguardando a url da foto ficar disponivel e colocala no array;
+        fileRef.getDownloadURL().subscribe(async (url) => {
+          console.log('url', url);
+          if (url) {
+            arrayUrl.push(url);
+            console.log('arrayUrl', arrayUrl);
+            resolve('Foto inserida');
+          }
+        }, erro => reject(erro));
+      } catch (e) {
+        reject(e);
+      }
     });
   }
 }

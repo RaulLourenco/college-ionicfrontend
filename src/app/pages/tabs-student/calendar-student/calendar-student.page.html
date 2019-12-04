@@ -25,7 +25,7 @@
                     {{event.date}}
                 </ion-col>
             </ion-row>
-            <ion-icon (click)="delete()" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
+            <ion-icon (click)="delete(event.description, event.date)" slot="end" name="trash" mode="ios" size="large" color="danger"></ion-icon>
         </ion-item>
     </div>
 
